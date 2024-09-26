@@ -58,5 +58,3 @@
 
 - Histórico é composto por disc_hist: Um histórico é composto por um ou vários históticos de disciplinas (disc_hist) e um disc_hist só pode pertencer há um único Histórico.
 
-![Imagem do ME-R](../assets/img.png)
-
