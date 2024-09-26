@@ -56,4 +56,6 @@
 
 - Disciplina compõe disc_hist: Uma disciplina pode ter de um á vários históricos de disciplinas (disc_hist) e um disc_hist só pode compor uma única disciplinas.
 
-Histórico é composto por disc_hist: Um histórico é composto por um ou vários históticos de disciplinas (disc_hist) e um disc_hist só pode pertencer há um único Histórico.
+- Histórico é composto por disc_hist: Um histórico é composto por um ou vários históticos de disciplinas (disc_hist) e um disc_hist só pode pertencer há um único Histórico.
+
+<img src = assets/ME-R.png>
