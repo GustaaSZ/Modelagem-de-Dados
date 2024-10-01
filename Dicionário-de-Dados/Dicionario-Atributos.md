@@ -103,3 +103,11 @@
 |Cod_professor | inteiro |   4 bytes | PK, FK, NOT NULL | Código de identificação do professor |
 |Cod_disciplina | inteiro  |   4 bytes | PK, FK, NOT NULL | Código de identificação da disciplina |
 ---
+
+- ## Entidade Aluno_disc (associativa)
+
+| Atributo | Tipos de dados | Comprimento | Restrições | Descrição |
+| ------- | ------- | ------- |------| ------|
+|Cod_Aluno | caractere |   8 bytes | PK, FK, NOT NULL | Código de identificação do aluno |
+|Cod_disciplina | inteiro  |   4 bytes | PK, FK, NOT NULL | Código de identificação da disciplina |
+---

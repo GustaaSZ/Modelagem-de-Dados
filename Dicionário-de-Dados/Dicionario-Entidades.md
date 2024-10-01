@@ -25,3 +25,4 @@
 |Disc_Hist| Disciplina e Historico    |   compõe, é composto | Tabela associativa entre Disciplina e Histórico |
 |Curso_Disciplina|     Curso e Disciplina    |     possui e pertence    | Tabela associativa entre Curso e Disciplina |
 |Prof_Disciplina|     Professor e Disciplina   | Leciona, é lecionada    | Tabela associativa entre Professor e Disciplina |
+|Aluno_disc|     Aluno e Disciplina   | cursa, é cursada    | Tabela associativa entre Aluno e Disciplina |
