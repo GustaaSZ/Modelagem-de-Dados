@@ -30,6 +30,8 @@
     (cod_disciplina, cod_professor)
 - curso_disciplina:
     (cod_curso, cod_disciplina)
+- Aluno_disc:
+    (cod_aluno, cod_disciplina)
 
 ## ME-R: Relacionamentos
 - Aluno está matriculado em Curso: Aluno só pode estar matriculado em um curso, enquanto curso, pode ter nenhum, ou vários alunos.
@@ -57,4 +59,8 @@
 - Disciplina compõe disc_hist: Uma disciplina pode ter de um á vários históricos de disciplinas (disc_hist) e um disc_hist só pode compor uma única disciplinas.
 
 - Histórico é composto por disc_hist: Um histórico é composto por um ou vários históticos de disciplinas (disc_hist) e um disc_hist só pode pertencer há um único Histórico.
+
+- Aluno Cursa aluno_disc: Um aluno pode cursar vários a combinação de aluno_dics, porém aluno_dics, só pode pertencer à um único aluno. 
+
+- Disciplina é cursada por aluno_disc: Uma disciplina pode ser cursada por vários aluno_dics, porém aluno_dics, só pode pertencer à uma única disciplina. 
 
