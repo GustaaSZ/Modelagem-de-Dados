@@ -33,7 +33,7 @@
 | ------- | ------- | ------- |------| ------|
 |Cod_turma | inteiro    | 2 bytes | PK, NOT NULL | Código de identificação da turma |
 |Cod_curso |  inteiro | 2 bytes | FK, NOT NULL |código de identificação do curso |
-|Perodo | caractere | 5 bytes | NOT NULL |  Período da turma (manhã ou tarde) |
+|Periodo | caractere | 5 bytes | NOT NULL |  Período da turma (manhã ou tarde) |
 |Num_alunos | inteiro | 2 bytes | NOT NULL | Numero de alunos matriculados na turma |
 | Data_inicio | Data | 4 bytes | NOT NULL | data de início da turma |
 | Data_fim | Data | 4 bytes | NOT NULL | data de fim da turma |
