@@ -53,3 +53,12 @@ create table Disciplina (
     Num_Alunos int not null
 );
 
+-- Criando a tabela Disciplina
+CREATE TABLE Prof_Disciplina (
+ Cod_professor INT NOT NULL,
+ Cod_disciplina INT NOT NULL,
+ PRIMARY KEY (Cod_professor, Cod_disciplina), 
+ CONSTRAINT fk_Cod_Professor_Prof FOREIGN KEY (Cod_professor) REFERENCES Professor (Cod_professor),
+ CONSTRAINT fk_Cod_Disciplina_Prof FOREIGN KEY (Cod_disciplina) REFERENCES Disciplina (Cod_disciplina)
+);
+
