@@ -123,11 +123,16 @@ CREATE TABLE Disc_Hist (
 	CONSTRAINT fk_Cod_Disciplina_Hist FOREIGN KEY (Cod_Disciplina) REFERENCES Disciplina (Cod_disciplina)
 );
 
+-- Modificando o tipo do atributo nota pra float com 4 dígitos e 2 casas decimais
+alter table Disc_Hist modify column Nota FLOAT(4,2);
+
 -- Criando a table de tipo de telefone
 CREATE TABLE Tipo_Telefone(
     Cod_Tipo_Telefone INT PRIMARY KEY AUTO_INCREMENT,
     Tipo_Telefone VARCHAR(11)
 );
+-- Alterando o tamanho do atributo
+ALTER TABLE Tipo_Telefone MODIFY Tipo_Telefone VARCHAR(11);
 
 -- Criando a tabela dos telefones dos alunos
 CREATE TABLE Telefones_Aluno (
