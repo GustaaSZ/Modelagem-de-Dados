@@ -64,11 +64,11 @@ create table Curso_disciplina (
 
 -- Criando a tabela prof_disciplina (associativa)
 CREATE TABLE Prof_Disciplina (
-	 Cod_professor INT NOT NULL,
-	 Cod_disciplina INT NOT NULL,
-	 PRIMARY KEY (Cod_professor, Cod_disciplina), 
-	 CONSTRAINT fk_Cod_Professor_Prof FOREIGN KEY (Cod_professor) REFERENCES Professor (Cod_professor),
-	 CONSTRAINT fk_Cod_Disciplina_Prof FOREIGN KEY (Cod_disciplina) REFERENCES Disciplina (Cod_disciplina)
+    Cod_professor INT NOT NULL,
+    Cod_disciplina INT NOT NULL,
+    PRIMARY KEY (Cod_professor, Cod_disciplina), 
+    CONSTRAINT fk_Cod_Professor_Prof FOREIGN KEY (Cod_professor) REFERENCES Professor (Cod_professor),
+    CONSTRAINT fk_Cod_Disciplina_Prof FOREIGN KEY (Cod_disciplina) REFERENCES Disciplina (Cod_disciplina)
 );
 
 -- Criando a tabela Aluno
@@ -77,7 +77,7 @@ create table Aluno (
     Nome_Aluno varchar(20) not null,
     Sobrenome_Aluno varchar(50) not null,
     Cpf varchar(11) not null,
-    telefone varchar(11) not null,
+    -- telefone varchar(11) not null, FOI EXLUIDA
     status_aluno tinyint(1) not null,
     email varchar(60) not null,
     WhatsApp varchar(11),
@@ -90,6 +90,10 @@ create table Aluno (
     constraint fk_Cod_curso_aluno FOREIGN KEY (Cod_curso) references Curso (Cod_curso)
 );
 
+-- Excluindo a coluna de telefone na tabela Aluno
+ALTER TABLE Aluno DROP COLUMN telefone;
+
+
 -- criando a tabela aluno_disc (associativa)
 create table Aluno_disc (
 	Cod_aluno int not null,
@@ -101,55 +105,55 @@ create table Aluno_disc (
 
 -- criando a tabela de historico
 CREATE TABLE Historico (
-	 Cod_Historico INT PRIMARY KEY AUTO_INCREMENT,
-	 RA INT NOT NULL,
-	 Data_Inicio DATE NOT NULL,
-	 Data_Final DATE,
-	 CONSTRAINT fk_Cod_RA FOREIGN KEY (RA) REFERENCES Aluno (RA)
+    Cod_Historico INT PRIMARY KEY AUTO_INCREMENT,
+    RA INT NOT NULL,
+    Data_Inicio DATE NOT NULL,
+    Data_Final DATE,
+    CONSTRAINT fk_Cod_RA FOREIGN KEY (RA) REFERENCES Aluno (RA)
 );
 
 -- Criando a tabela de Disciplina Historico (associativa)
 CREATE TABLE Disc_Hist (
-	 Cod_Historico INT NOT NULL,
-	 Cod_Disciplina INT NOT NULL,
-	 Nota INT,
-	 Frequência INT,
-	 PRIMARY KEY (Cod_Historico, Cod_Disciplina), 
-	 CONSTRAINT fk_Cod_Historico FOREIGN KEY (Cod_Historico) REFERENCES Historico (Cod_Historico),
-	 CONSTRAINT fk_Cod_Disciplina_Hist FOREIGN KEY (Cod_Disciplina) REFERENCES Disciplina (Cod_disciplina)
+	Cod_Historico INT NOT NULL,
+	Cod_Disciplina INT NOT NULL,
+	Nota INT,
+	Frequência INT,
+	PRIMARY KEY (Cod_Historico, Cod_Disciplina), 
+	CONSTRAINT fk_Cod_Historico FOREIGN KEY (Cod_Historico) REFERENCES Historico (Cod_Historico),
+	CONSTRAINT fk_Cod_Disciplina_Hist FOREIGN KEY (Cod_Disciplina) REFERENCES Disciplina (Cod_disciplina)
 );
 
 -- Criando a table de tipo de telefone
 CREATE TABLE Tipo_Telefone(
- Cod_Tipo_Telefone INT PRIMARY KEY AUTO_INCREMENT,
- Tipo_Telefone VARCHAR(8)
+    Cod_Tipo_Telefone INT PRIMARY KEY AUTO_INCREMENT,
+    Tipo_Telefone VARCHAR(11)
 );
 
 -- Criando a tabela dos telefones dos alunos
 CREATE TABLE Telefones_Aluno (
- Cod_Telefones_Aluno INT PRIMARY KEY AUTO_INCREMENT,
- RA INT NOT NULL,
- Cod_Tipo_Telefone INT NOT NULL,
- Telefone VARCHAR(20) NOT NULL,
- CONSTRAINT fk_Cod_RA_Tel FOREIGN KEY (RA) REFERENCES Aluno (RA),
- CONSTRAINT fk_Cod_Tipo_Telefone FOREIGN KEY (Cod_Tipo_Telefone) REFERENCES Tipo_Telefone (Cod_Tipo_Telefone)
+    Cod_Telefones_Aluno INT PRIMARY KEY AUTO_INCREMENT,
+    RA INT NOT NULL,
+    Cod_Tipo_Telefone INT NOT NULL,
+    Telefone VARCHAR(20) NOT NULL,
+    CONSTRAINT fk_Cod_RA_Tel FOREIGN KEY (RA) REFERENCES Aluno (RA),
+    CONSTRAINT fk_Cod_Tipo_Telefone FOREIGN KEY (Cod_Tipo_Telefone) REFERENCES Tipo_Telefone (Cod_Tipo_Telefone)
 );
 
 -- Criando table tipo_logradouro
 CREATE TABLE Tipo_Logradouro (
- Cod_Tipo_Logradouro INT PRIMARY KEY AUTO_INCREMENT,
- Tipo_Logradouro VARCHAR(11)
+    Cod_Tipo_Logradouro INT PRIMARY KEY AUTO_INCREMENT,
+    Tipo_Logradouro VARCHAR(11)
 );
 
 -- Criando table Endereço_aluno
 CREATE TABLE Endereco_Aluno (
- Cod_Endereco_Aluno INT PRIMARY KEY AUTO_INCREMENT,
- RA INT NOT NULL,
- Cod_Tipo_Logradouro INT NOT NULL,
- Nome_Rua VARCHAR(50) NOT NULL,
- Num_Rua INT NOT NULL,
- Complemento VARCHAR(20) NULL,
- CEP VARCHAR(8) NOT NULL,
- CONSTRAINT fk_Cod_RA_End FOREIGN KEY(RA) REFERENCES Aluno (RA),
- CONSTRAINT fk_Cod_Tipo_Lougradouro FOREIGN KEY(Cod_Tipo_Logradouro) REFERENCES Tipo_Logradouro (Cod_Tipo_Logradouro)
+    Cod_Endereco_Aluno INT PRIMARY KEY AUTO_INCREMENT,
+    RA INT NOT NULL,
+    Cod_Tipo_Logradouro INT NOT NULL,
+    Nome_Rua VARCHAR(50) NOT NULL,
+    Num_Rua INT NOT NULL,
+    Complemento VARCHAR(20) NULL,
+    CEP VARCHAR(8) NOT NULL,
+    CONSTRAINT fk_Cod_RA_End FOREIGN KEY(RA) REFERENCES Aluno (RA),
+    CONSTRAINT fk_Cod_Tipo_Lougradouro FOREIGN KEY(Cod_Tipo_Logradouro) REFERENCES Tipo_Logradouro (Cod_Tipo_Logradouro)
 );
